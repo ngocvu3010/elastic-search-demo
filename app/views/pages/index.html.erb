@@ -1,0 +1,26 @@
+<%= form_tag(pages_path, method: :get) do %>
+  Name: <%= text_field_tag :name %>
+  Email: <%= text_field_tag :email %>
+  Telephone: <%= text_field_tag :tel %>
+  Is Cat: <%= check_box_tag :is_cat %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<h1>Users</h1>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <% for user in @users %>
+        <div class='task'>
+            <strong> <%= [user.name, user.email, user.tel, user.is_cat].join(" | ") %></strong>
+        </div>
+      <% end %>
+     </tr>
+  </tbody>
+</table>
