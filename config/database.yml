@@ -1,0 +1,15 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  username: root
+  password:
+  socket: /var/run/mysqld/mysqld.sock
+  encoding: utf8mb4
+  collation: utf8mb4_unicode_ci
+development:
+  <<: *default
+  database: elastic_development
+
+test:
+  <<: *default
+  database: elastic_test
